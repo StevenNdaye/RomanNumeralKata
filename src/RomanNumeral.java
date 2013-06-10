@@ -5,7 +5,7 @@ public class RomanNumeral {
     public RomanNumeral(int arabicNumber) {
 
         if(arabicNumber < 1){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Romans did not use zero and negative");
         }
         this.arabicNumber = arabicNumber;
     }

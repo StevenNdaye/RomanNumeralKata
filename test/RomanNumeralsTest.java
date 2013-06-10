@@ -1,18 +1,28 @@
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class RomanNumeralsTest {
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowNumberIsZero() {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+
+    @Test
+    public void shouldThrowNumberIsZero(){
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Romans did not use zero and negative");
         new RomanNumeral(0);
 
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void shouldThrowNumberIsLessThanOne() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Romans did not use zero and negative");
         new RomanNumeral(-1);
 
     }
